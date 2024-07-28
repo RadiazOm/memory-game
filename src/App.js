@@ -61,7 +61,7 @@ function App() {
         setWon(false)
 
         // choose a size, should be an even number
-        const size = 16;
+        const size = 8;
         // all of our images
         let imgList = imageList;
         let idList = [];
@@ -88,7 +88,7 @@ function App() {
 
     // when we click on a card, check if we aren't clicking the same card and if the firstCard had been set, else it's the firstCard being clicked
     function onCardClick(item) {
-        if (lockClick || won) {
+        if (lockClick || won || item.matched) {
             return
         }
         if (firstCard && item !== firstCard) {
@@ -107,7 +107,7 @@ function App() {
                     <h1 className="text-7xl m-9 text-white bg-blue-900 p-9 rounded-2xl">Gewonnen!</h1>
                 </div> : ""}
             <div className="flex justify-center items-center">
-                <div className="flex flex-wrap w-1/2 justify-center">
+                <div className="flex flex-wrap w-full md:w-1/2 justify-center items-start">
                     {/* for every card, make a <Card> element and give it its flipped properties */}
                     {cards.map((item) => (
                         <Card item={item} flipped={item === firstCard

@@ -12,6 +12,9 @@ body {
 }
 
 .card {
+  width: 20%;
+  height: 0;
+  padding-bottom: 20%;
   transition: all 0.5s ease-out;
 }
 
